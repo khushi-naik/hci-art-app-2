@@ -154,9 +154,9 @@
           <h5><a href="/workshops">See more..</a></h5><br>
           <h3 id="findTherapist">Find a therapist.</h3>
           <div>
-          <form>
+          <form action="/therapists" method="get">
             <div class="mb-3">
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="enter your location" aria-describedby="emailHelp">
+              <input type="text" name="therapistLocation" class="form-control" id="exampleInputEmail1" placeholder="enter your location" aria-describedby="emailHelp" value="Montreal">
               <div id="emailHelp" class="form-text">We'll find you therapists that are close to your location.</div>
             </div>
             

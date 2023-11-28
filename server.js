@@ -1,8 +1,6 @@
 //.env variables
 //require('dotenv').config()
 const express = require('express')
-//const mongoose = require('mongoose')
-//const User = require("./models/users");
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
@@ -16,49 +14,19 @@ let data = [[], []]
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }));
-/*mongoose.set('strictQuery', false);
-const connectDb = async ()=> {
-    try{
-        const conn = await mongoose.connect(process.env.MONGO_URI);
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
-    }
-    catch (error) {
-        console.log("eeeee"+error)
-        process.exit(1);
-    }
-}*/
+//app.use(express.json()); // Used to parse JSON bodies
+//app.use(express.urlencoded()); 
+
 app.use(express.static('public'))
 app.use(compression({
     level: 6,
     threshold: 0,
 }))
 
-/*app.get('/', (req, res) => {
-    res.render('index');
-   
-})
-*/
 app.get('/', (req, res) => {
     //res.redirect(`/${uuidV4()}`)
     res.render(`index`, { roomId: uuidV4()})
 })
-
-/*app.get('/signup', async (req, res) => {
-    try{
-        var myobj = { username: "Company", password: "Highway" };
-        console.log(myobj);
-        await Book.insertMany([
-            {
-                username: "Company",
-                password: "Highwayww",
-            }
-          ]);
-    }
-    catch(error){
-        console.log("err", + error);
-    }
-    res.send("data added...")
-})*/
 
 app.get('/onlinegames', (req, res) => {
     res.render('gamelistpage');
@@ -66,6 +34,12 @@ app.get('/onlinegames', (req, res) => {
 
 app.get('/workshops', (req, res) => {
     res.render('workshoplistpage');
+})
+
+app.get('/therapists', (req, res) => {
+    var location = req.query.therapistLocation;
+    console.log("helll"+location);
+    res.render('therapistlistpage', {therapistLocation: location});
 })
 
 app.get('/workshopregistration', (req,res) => {
@@ -76,11 +50,13 @@ app.get('/openart', (req, res) => {
     res.render('openart', { roomId: uuidV4()})
 })
 
-app.get('/:room', (req, res) => {
-    
-    
+app.get('/:room', (req, res) => { 
     res.render('room', { roomId: req.params.room })
 })
+
+/*app.get('/therapists', (req, res) => {
+    res.render('therapistlistpage', { therapistLocation: req.body.therapistLocation })
+})*/
 
 io.on('connection', socket => {
     socket.on('join-room', (roomID, userID) => {
@@ -128,7 +104,18 @@ io.on('connection', socket => {
             data[0].splice(user, 1)
             data[1].splice(room, 1)
         })
+
+        socket.emit('countdown', { minutes: 1, seconds: 30 });
+
+        // Handle extend countdown events from clients
+        socket.on('extendCountdown', () => {
+            countdownTimeInSeconds += 45;
+            endTime = Date.now() + countdownTimeInSeconds * 1000;
+            updateCountdown();
+        });
     })
+    // Send the initial countdown when a client connects
+  
 })
 
 let countdownTimeInSeconds = 90;
@@ -155,7 +142,7 @@ function resetCountdown() {
   updateCountdown();
 }
 
-io.on('connection', (socket) => {
+/*io.on('connection', (socket) => {
   // Send the initial countdown when a client connects
   socket.emit('countdown', { minutes: 1, seconds: 30 });
 
@@ -165,7 +152,7 @@ io.on('connection', (socket) => {
     endTime = Date.now() + countdownTimeInSeconds * 1000;
     updateCountdown();
   });
-});
+});*/
 
 setInterval(updateCountdown, 1000);
 

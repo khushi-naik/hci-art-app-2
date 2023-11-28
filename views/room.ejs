@@ -47,11 +47,11 @@
             <div id="timer">Time Left: <span id="countdown"></span></div>
             <button type="button" onclick="extendCountdown()">E</button>
             <script>
-                const socket = io();
+                socket = io();
 
 // Update the countdown when received from the server
 socket.on('countdown', ({ minutes, seconds }) => {
-  document.getElementById('countdown').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  document.getElementById('countdown').textContent = `${minutes}:${seconds < 10 ? '0' : 'jjj'}${seconds}`;
 });
 
 function extendCountdown() {

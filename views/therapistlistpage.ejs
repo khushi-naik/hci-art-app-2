@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Strokes : Therapists</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">Healing Strokes</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/onlinegames">Online Games</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/workshops">Workshops & Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#findTherapist">Find a Therapist</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" href="#">Sign-In</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav><br>
+          <h3>Art Therapists nearby...<%= therapistLocation %></h3>
+          <form action="/therapists" method="get">
+            <div class="row mb-3">
+                <div class="col">
+                    <input type="text" name="therapistLocation" class="form-control" id="exampleInputEmail1" placeholder="enter your location" aria-describedby="emailHelp" value="<%= therapistLocation %>">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+              
+            </div>
+            <div id="emailHelp" class="form-text">We'll find you therapists that are close to your location.</div>
+            
+          </form>
+          <div class="therapist-card">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="/images/workshop1.png" class="img-fluid rounded-start" alt="..." width="100%" height="100%">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Maggie Rufala</h5>
+                      <p class="card-text">In-person art therapy</p>
+                      <p class="card-text">Timing: 10am-2pm</p>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Get Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Therapist Info</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="/images/workshop1.png">
+                            </div>
+                            <div class="col">
+                                <p>Address: McTavish 2019, Downtown, Montreal</p>
+                                <p>Timing: Monday-Friday : 10am to 4pm</p>
+                                <p>Contact: +1 673 637 8882</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="therapist-card">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="/images/workshop1.png" class="img-fluid rounded-start" alt="..." width="100%" height="100%">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Gabriel Musa</h5>
+                      <p class="card-text">Online art therapy</p>
+                      <p class="card-text">Timing: 12pm-2pm</p>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Get Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Therapist Info</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="/images/workshop1.png">
+                            </div>
+                            <div class="col">
+                                <p>Address: McTavish 2019, Downtown, Montreal</p>
+                                <p>Timing: Monday-Friday : 10am to 4pm</p>
+                                <p>Contact: +1 673 637 8882</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="therapist-card">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="/images/workshop1.png" class="img-fluid rounded-start" alt="..." width="100%" height="100%">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Eleanor Thompson</h5>
+                      <p class="card-text">Online art therapy</p>
+                      <p class="card-text">Timing: 4pm-6pm</p>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Get Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Therapist Info</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="/images/workshop1.png">
+                            </div>
+                            <div class="col">
+                                <p>Address: McTavish 2019, Downtown, Montreal</p>
+                                <p>Timing: Monday-Friday : 10am to 4pm</p>
+                                <p>Contact: +1 673 637 8882</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="therapist-card">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="/images/workshop1.png" class="img-fluid rounded-start" alt="..." width="100%" height="100%">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Mason Rodriguez</h5>
+                      <p class="card-text">In-person art therapy</p>
+                      <p class="card-text">Timing: 11am-12pm</p>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Get Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Therapist Info</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="/images/workshop1.png">
+                            </div>
+                            <div class="col">
+                                <p>Address: McTavish 2019, Downtown, Montreal</p>
+                                <p>Timing: Monday-Friday : 10am to 4pm</p>
+                                <p>Contact: +1 673 637 8882</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        
+          <br><br><br><br>
+          <footer class="footer">
+            designed by : Group H
+          </footer>
+    </div>
+    </body>
+</html>
