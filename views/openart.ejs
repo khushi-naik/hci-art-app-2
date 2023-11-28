@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Strokes : OpenArt</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div>
+            <img src="/images/openart1.png" width="100%" height="10%">
+            <h2>About the Game:</h2>
+            <p>Collaborate with fellow participants in the room to create an enjoyable artwork that evolves based on everyone's contributions. It's a delightful means of sparking group creativity and relieving stress through a shared activity.</p>
+            <br>
+            <h2>Rules:</h2>
+            <ul>
+                <li>Start the game by generating a prompt for drawing.</li>
+                <li>Each participant gets 1.5 minutes per turn with a total group time of 20 minutes. You can click "Pass to Next" to finish early or add 45 secs by selecting "Extend time."</li> 
+                <li>A visible timer helps manage your time. Leave the game whenever you want.</li>
+                <li>After 30 mins, your art will be automatically submitted.</li>
+                <li>Save your collaborative art by clicking "Save Art."</li>
+                <li>Above all, be kind, have fun, and doodle freely while enjoying the process!</li>
+            </ul>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Play Game
+            </button>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">OpenArt</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <button onclick="insertRandomValue()">Generate Prompt</button>
+                    <form action="/<%= roomId %>" method="get">
+                    <div class="modal-body">
+                        <!--<label for="player">Player </label>
+                        <input id="player" type="text" placeholder="enter name">-->
+                        <input type="text" id="prompt" name="prompt" placeholder="click to generate prompt">
+                        
+                        <script>                          
+                            function insertRandomValue() {
+                                const stringArray = ["apple", "banana", "orange", "grape"];
+                                const randomValue = stringArray[Math.floor(Math.random() * stringArray.length)];
+                                document.getElementById('prompt').value = randomValue;
+                            }
+                          </script>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Start Game!</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <a href="/<%= roomId %>">hereeeeeeee</a>
+    </div>
+</body>
+</html>

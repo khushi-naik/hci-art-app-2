@@ -1,0 +1,27 @@
+body{
+    
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(246, 244, 244);
+    color: rgb(18, 8, 8);
+    text-align: center;
+ }
+
+.card-align{
+    
+    align-items: center;
+    justify-content: center;
+}
+
+.see-more{
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}
