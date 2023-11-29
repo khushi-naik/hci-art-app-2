@@ -71,7 +71,20 @@
 
 // Update the countdown when received from the server
 socket.on('countdown', ({ minutes, seconds }) => {
+    if(minutes===0 && seconds<=5){
+        document.getElementsByClassName('midPanel')[0].style.backgroundColor = 'red';
+    }
+    
   document.getElementById('countdown').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  if(minutes===0 && seconds===0){
+        document.getElementsByClassName('midPanel')[0].style.backgroundColor = 'rgb(102, 196, 124)';
+        var P1 = document.getElementById('p1').innerText;
+        var P2 = document.getElementById('p2').innerText;
+        console.log("edfgdg "+P1.textContent+P1.textContent == "1")
+        document.getElementById('p1').innerText = P2;
+        document.getElementById('p2').innerText = P1;
+        
+    }
 });
 
 function extendCountdown() {
@@ -102,13 +115,14 @@ function extendCountdown() {
               <script>
                 // Auto-submit the form after 3 seconds (3000 milliseconds)
                 setTimeout(function() {
-                  document.getElementById('myForm').submit();
-                }, 1800000);
+                    alert('Your team time has ended! Hope you had fun :)');
+                    document.getElementById('myForm').submit();
+                }, 15000);
               </script>
         </div>
         <div class="statusPanel row">
             <div class="col"></div>
-            <div class="col"><p>turn</p></div>
+            <div class="col"><p>Player <span id="p1">1</span> is drawing... Player <span id="p2">2</span> is next!</p></div>
             <div class="col"></div>
         </div>
         <div class="dockPanel">
