@@ -1,7 +1,9 @@
 body{
     
 }
-
+nav{
+    background-color: aquamarine;
+}
 .footer {
     position: fixed;
     left: 0;

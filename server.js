@@ -36,14 +36,29 @@ app.get('/workshops', (req, res) => {
     res.render('workshoplistpage');
 })
 
+app.get('/freepaidworkshops', (req, res) => {
+    var filter = req.query.category;
+    console.log("helll"+filter);
+    res.render('freepaidworkshoplistpage', {filterValue: filter});
+})
+
 app.get('/therapists', (req, res) => {
     var location = req.query.therapistLocation;
     console.log("helll"+location);
     res.render('therapistlistpage', {therapistLocation: location});
 })
 
-app.get('/workshopregistration', (req,res) => {
-    res.render('workshopregistration');
+app.get('/mandalaworkshop', (req,res) => {
+    res.render('mandalaworkshopregistration');
+})
+app.get('/crochetworkshop', (req,res) => {
+    res.render('crochetworkshopregistration');
+})
+app.get('/zentangleworkshop', (req,res) => {
+    res.render('zentangleworkshopregistration');
+})
+app.get('/potteryworkshop', (req,res) => {
+    res.render('potteryworkshopregistration');
 })
 
 app.get('/openart', (req, res) => {
@@ -51,7 +66,9 @@ app.get('/openart', (req, res) => {
 })
 
 app.get('/:room', (req, res) => { 
-    res.render('room', { roomId: req.params.room })
+    var dprompt = req.query.prompt;
+    console.log("ppp"+dprompt)
+    res.render('room', { roomId: req.params.room, drawingPrompt: dprompt })
 })
 
 /*app.get('/therapists', (req, res) => {
