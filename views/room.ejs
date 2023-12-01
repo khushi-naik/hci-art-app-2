@@ -52,7 +52,7 @@
                     <button class="btn btn-primary" type="button" id="link" onclick="copyLink()" data-tooltip="Скопировать ссылку для приглашения участников в эту комнату"></button>
                 </div>
                 <div class="col">
-                    <button style="width: 150px;" type="button" class="btn btn-primary" onclick="extendCountdown()">Extend Time</button>
+                    <button style="width: 150px;" type="button" class="btn extend-time" onclick="extendCountdown()"><img src="/images/extendtime.png"></button>
                 </div>
                 <div class="col-sm-3">
                     <div>Prompt: <%= drawingPrompt %></div>
@@ -76,7 +76,10 @@ socket.on('countdown', ({ minutes, seconds }) => {
     }
     
   document.getElementById('countdown').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  if(minutes===0 && seconds===0){
+  if((minutes>1) || (minutes===0) && seconds>5){
+    document.getElementsByClassName('midPanel')[0].style.backgroundColor = 'rgb(102, 196, 124)';
+  }
+  if((minutes===0 && seconds===0)){
         document.getElementsByClassName('midPanel')[0].style.backgroundColor = 'rgb(102, 196, 124)';
         var P1 = document.getElementById('p1').innerText;
         var P2 = document.getElementById('p2').innerText;
@@ -117,7 +120,7 @@ function extendCountdown() {
                 setTimeout(function() {
                     alert('Your team time has ended! Hope you had fun :)');
                     document.getElementById('myForm').submit();
-                }, 15000);
+                }, 1800000);
               </script>
         </div>
         <div class="statusPanel row">

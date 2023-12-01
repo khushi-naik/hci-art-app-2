@@ -62,7 +62,7 @@ body {
 
 .topPanel > button {
     width: 30px;
-    height: 30px;
+    height: 35px;
     background: #2525257a;
     background-size: 18px;
     background-repeat: no-repeat;
@@ -71,10 +71,14 @@ body {
     box-shadow: 1px 2px 3px #5454547a, 0px 0px 1px #565656;
     backdrop-filter: blur(4px);
 }
+.extend-time{
+    /*background: url(/images/extendtime.png) no-repeat;
+    height: 100%;*/
+}
 .midPanel{
     display: flex;
     position: fixed;
-    top: 50px;
+    top: 52px;
     left: 10px;
     z-index: 10;
     background-color: #66c47c;
