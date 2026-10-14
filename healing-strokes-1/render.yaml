@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: healing-strokes
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: APP_ORIGIN
+        sync: false
+      - key: HOSTNAME
+        value: 0.0.0.0
